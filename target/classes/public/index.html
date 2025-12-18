@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduTrack Pro</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Left Sidebar -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <i class="fa-solid fa-graduation-cap logo-icon"></i>
+                <h2>EduTrack</h2>
+            </div>
+            <ul class="nav-links">
+                <li class="active" data-target="dashboard">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <span>Dashboard</span>
+                </li>
+                <li data-target="attendance">
+                    <i class="fa-solid fa-clipboard-check"></i>
+                    <span>Mark Attendance</span>
+                </li>
+                <li data-target="reports">
+                    <i class="fa-solid fa-file-invoice"></i>
+                    <span>Reports</span>
+                </li>
+                <li data-target="settings">
+                    <i class="fa-solid fa-gear"></i>
+                    <span>Settings</span>
+                </li>
+            </ul>
+            <div class="user-profile">
+                <div class="user-avatar">AD</div>
+                <div class="user-info">
+                    <span class="name">Admin User</span>
+                    <span class="role">Principal</span>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Header -->
+            <header class="top-header">
+                <h1 id="page-title">Dashboard</h1>
+                <div class="date-display" id="current-date"></div>
+            </header>
+
+            <!-- Dashboard View -->
+            <section id="dashboard" class="content-section active">
+                <div class="stats-grid">
+                    <div class="stat-card blue-glass">
+                        <h3>Total Students</h3>
+                        <div class="stat-value">15</div>
+                        <i class="fa-solid fa-users stat-icon"></i>
+                    </div>
+                    <div class="stat-card green-glass">
+                        <h3>Avg. Attendance</h3>
+                        <div class="stat-value" id="avg-attendance">--%</div>
+                        <i class="fa-solid fa-percent stat-icon"></i>
+                    </div>
+                    <div class="stat-card purple-glass">
+                        <h3>Classes Today</h3>
+                        <div class="stat-value">4</div>
+                        <i class="fa-solid fa-chalkboard stat-icon"></i>
+                    </div>
+                </div>
+
+                <div class="chart-container glass-panel">
+                    <h3>Yearly Attendance Overview</h3>
+                    <div class="simple-bar-chart" id="yearly-chart">
+                        <!-- Bars injected by JS -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Mark Attendance View -->
+            <section id="attendance" class="content-section">
+                <div class="glass-panel controls-panel">
+                    <div class="control-group">
+                        <label>Date</label>
+                        <input type="date" id="attendance-date">
+                    </div>
+                    <div class="control-group">
+                        <label>Standard</label>
+                        <select id="std-select">
+                            <option value="1">Class 1</option>
+                            <option value="2">Class 2</option>
+                            <option value="3">Class 3</option>
+                            <option value="4">Class 4</option>
+                            <option value="5">Class 5</option>
+                            <option value="6">Class 6</option>
+                            <option value="7">Class 7</option>
+                            <option value="8">Class 8</option>
+                            <option value="9">Class 9</option>
+                            <option value="10">Class 10</option>
+                        </select>
+                    </div>
+                    <div class="control-group" style="flex: 0.5;">
+                        <label>Section</label>
+                        <select id="section-select">
+                            <option value="A">A</option>
+                            <option value="B">B</option>
+                        </select>
+                    </div>
+                    <div class="control-group">
+                        <label>Subject</label>
+                        <select id="class-select"> <!-- Reusing ID for Subject -->
+                            <option value="Math">Math</option>
+                            <option value="English">English</option>
+                            <option value="Hindi">Hindi</option>
+                            <option value="Science">Science</option>
+                            <option value="Social Science">Social Science</option>
+                            <option value="Arts">Arts</option>
+                        </select>
+                    </div>
+                    <button id="load-students-btn" class="btn-shine">Load List</button>
+                </div>
+
+                <div id="student-list" class="student-grid">
+                    <!-- Cards injected by JS -->
+                </div>
+
+                <div class="attendance-footer">
+                    <button id="submit-attendance" class="btn-save-big">
+                        <i class="fa-solid fa-check"></i> Save Attendance
+                    </button>
+                </div>
+            </section>
+
+            <!-- Reports View -->
+            <section id="reports" class="content-section">
+                <div class="glass-panel">
+                    <div class="panel-header">
+                        <h3>Student Performance Report</h3>
+                        <button id="refresh-report" class="btn-icon"><i class="fa-solid fa-arrows-rotate"></i></button>
+                    </div>
+                    <table class="styled-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Total Classes</th>
+                                <th>Attended</th>
+                                <th>%</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="report-body">
+                            <!-- Data -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="toast">Attendance Saved Successfully!</div>
+
+    <!-- Confetti Canvas -->
+    <canvas id="confetti-canvas"></canvas>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>

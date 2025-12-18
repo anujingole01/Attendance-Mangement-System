@@ -1,0 +1,6 @@
+com\attendance\AttendanceRecord.class
+com\attendance\Student.class
+com\attendance\MainApp.class
+com\attendance\AttendanceManager.class
+com\attendance\ReportGenerator.class
+com\attendance\AttendanceCalculator.class
