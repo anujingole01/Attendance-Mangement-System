@@ -1,15 +1,6 @@
 [INFO] Scanning for projects...
 [INFO] 
-[INFO] ------------< com.attendance:attendance-management-system >-------------
-[INFO] Building attendance-management-system 1.0-SNAPSHOT
-[INFO]   from pom.xml
-[INFO] --------------------------------[ jar ]---------------------------------
-[INFO] 
-[INFO] --- clean:3.2.0:clean (default-clean) @ attendance-management-system ---
-[INFO] Deleting C:\Users\ASUS\OneDrive\Desktop\Devops project\target
-[INFO] 
-[INFO] --- resources:3.3.1:resources (default-resources) @ attendance-management-system ---
-[INFO] Copying 3 resources from src\main\resources to target\classes
+[INFO] ------------< com.attendan
 [INFO] 
 [INFO] --- compiler:3.11.0:compile (default-compile) @ attendance-management-system ---
 [INFO] Changes detected - recompiling the module! :source
