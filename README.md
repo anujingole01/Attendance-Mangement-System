@@ -7,10 +7,6 @@ A **Web-Based** application for managing student attendance. Built with **Java**
 - **REST API**: Backend endpoints for data management.
 - **DevOps Integration**: CI/CD with GitHub Actions.
 
-## Prerequisites
-- Java JDK 17+
-- Maven
-
 ## How to Run
 
 1. **Build:**
