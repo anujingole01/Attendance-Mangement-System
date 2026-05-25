@@ -1,4 +1,4 @@
-//devops
+
 
 A **Web-Based** application for managing student attendance. Built with **Java**, **Maven**, and **Javalin**.
 
