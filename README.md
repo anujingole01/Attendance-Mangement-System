@@ -1,4 +1,4 @@
-
+this is attendance management system for school colleges and offices.
 
 A **Web-Based** application for managing student attendance. Built with **Java**, **Maven**, and **Javalin**.
 
